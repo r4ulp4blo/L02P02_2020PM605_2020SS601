@@ -1,3 +1,7 @@
+﻿body {
+    background-color: lightgray;
+}
+
 .container {
   width: 100%;
   margin: 100px auto;
@@ -62,3 +66,5 @@
 .progressbar li.active + li:after {
   background-color: #55b776;
 }
+
+

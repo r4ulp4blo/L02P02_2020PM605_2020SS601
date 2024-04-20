@@ -3,3 +3,50 @@
 *@
 @{
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi aplicación</title>
+    <link rel="stylesheet" href="index.cshtml.css" asp-append-version="true" />
+</head>
+<body>
+    
+    <h1 class="text-center mb-0">Prototipo 02 - Seleccione el libro del autor seleccionado.</h1>
+    <div class="container mt-2">
+        <ul class="progressbar">
+            <li>Autores</li>
+            <li class="active">Libros</li>
+            <li>Comentarios Existentes</li>
+            <li>Nuevo Comentario</li>
+        </ul>
+    </div>
+    <h1 class="text-center">Autor : @ViewData["AutorSeleccionado"]</h1>
+    <br />
+    <form asp-controller="Prototipo_03">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Seleccione el libro del autor</th>
+                    <th></th> <!-- Aquí se colocará el botón "Seleccionar" -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var libro in (List<LibroPorAutorModel>)ViewData["LibrosPorAutor"])
+                {
+                    <tr>
+                        <td>@libro.NombreLibro</td>
+                        <td>
+                            <button type="submit" class="btn btn-primary" name="nombreLibro" value="">Seleccionar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+
+
+
+</body>
+</html>

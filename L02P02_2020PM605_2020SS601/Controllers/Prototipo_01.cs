@@ -13,6 +13,12 @@ namespace L02P02_2020PM605_2020SS601.Controllers
             _libreriaDbContext = libreriaDbContext;
         }
 
+        [HttpPost]
+        public IActionResult SeleccionarAutor(string nombreAutor)
+        {
+            return RedirectToAction("Index", "Prototipo_02", new { autorSeleccionado = nombreAutor });
+        }
+
         public IActionResult Index()
         {
             var listaNombresAutores = (from libro in _libreriaDbContext.libros
@@ -27,5 +33,7 @@ namespace L02P02_2020PM605_2020SS601.Controllers
 
             return View();
         }
+
+        
     }
 }

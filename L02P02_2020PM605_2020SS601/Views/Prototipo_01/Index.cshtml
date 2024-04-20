@@ -5,14 +5,17 @@
 }
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Mi aplicación</title>
-        <link rel="stylesheet" href="style.css" asp-append-version="true" />
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi aplicación</title>
+    <link rel="stylesheet" href="index.cshtml.css" />
+</head>
 <body>
-    <div class="container">
+    
+    <h1 class="text-center mb-0">Prototipo 01 - Formulario del listado de autores.</h1>
+    
+    <div class="container mt-2">
         <ul class="progressbar">
             <li class="active">Autores</li>
             <li>Libros</li>
@@ -20,14 +23,13 @@
             <li>Nuevo Comentario</li>
         </ul>
     </div>
-    <h1 class="text-center">Prototipo 01 - Formulario del listado de autores.</h1>
-    <br />
-    <form asp-action="Listado de autores">
+    
+    <form asp-controller="Prototipo_01" asp-action="SeleccionarAutor" method="post">
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Autores</th>
-                    <th></th> <!-- Botón "Seleccionar" -->
+                    <th></th> <!-- Aquí se colocará el botón "Seleccionar" -->
                 </tr>
             </thead>
             <tbody>
@@ -36,7 +38,7 @@
                     <tr>
                         <td>@verAutores.nombreAutor</td>
                         <td>
-                            <button type="submit" class="btn btn-primary">Seleccionar</button>
+                            <button type="submit" class="btn btn-primary" name="nombreAutor" value="@verAutores.nombreAutor">Seleccionar</button>
                         </td>
                     </tr>
                 }
@@ -47,5 +49,6 @@
 
 </body>
 </html>
+
 
 
