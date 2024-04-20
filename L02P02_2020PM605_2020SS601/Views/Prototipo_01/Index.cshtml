@@ -3,3 +3,49 @@
 *@
 @{
 }
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mi aplicación</title>
+        <link rel="stylesheet" href="style.css" asp-append-version="true" />
+    </head>
+<body>
+    <div class="container">
+        <ul class="progressbar">
+            <li class="active">Autores</li>
+            <li>Libros</li>
+            <li>Comentarios Existentes</li>
+            <li>Nuevo Comentario</li>
+        </ul>
+    </div>
+    <h1 class="text-center">Prototipo 01 - Formulario del listado de autores.</h1>
+    <br />
+    <form asp-action="Listado de autores">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Autores</th>
+                    <th></th> <!-- Botón "Seleccionar" -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var verAutores in (IEnumerable<dynamic>)ViewData["listaNombresAutores"])
+                {
+                    <tr>
+                        <td>@verAutores.nombreAutor</td>
+                        <td>
+                            <button type="submit" class="btn btn-primary">Seleccionar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+
+
+</body>
+</html>
+
+

@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 // Inyeccion por dependencia del string de conexion al conetxto.
 builder.Services.AddDbContext<libreriaDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("restauranteDbConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("libreriaDbConnection"));
 });
 
 var app = builder.Build();
