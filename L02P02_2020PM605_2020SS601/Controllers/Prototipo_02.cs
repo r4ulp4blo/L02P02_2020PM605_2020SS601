@@ -14,10 +14,15 @@ namespace L02P02_2020PM605_2020SS601.Controllers
             _libreriaDbContext = libreriaDbContext;
         }
 
+        [HttpPost]
+        public IActionResult SeleccionarLibro(string nombreLibro)
+        {
+            return RedirectToAction("MostrarComentarios", "Prototipo_03", new { nombreLibroSeleccionado = nombreLibro });
+        }
+
 
         public IActionResult Index(string autorSeleccionado)
         {
-            // Obtener los libros del autor seleccionado y sus nombres
             var librosPorAutor = (from libro in _libreriaDbContext.libros
                                   join autor in _libreriaDbContext.autores
                                   on libro.id_autor equals autor.id
@@ -30,7 +35,6 @@ namespace L02P02_2020PM605_2020SS601.Controllers
                                       NombreAutor = autor.autor
                                   }).ToList();
 
-            // Pasar los libros y el nombre del autor seleccionado a la vista
             ViewData["LibrosPorAutor"] = librosPorAutor;
             ViewData["AutorSeleccionado"] = autorSeleccionado;
 

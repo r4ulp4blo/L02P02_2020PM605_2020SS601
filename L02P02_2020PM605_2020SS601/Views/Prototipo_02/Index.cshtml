@@ -33,7 +33,7 @@
     <div class="container container2 mb-0">
         <div class="card">
             <div class="card-body">
-                <form asp-controller="Prototipo_03">
+                <form asp-controller="Prototipo_03" asp-action="SeleccionarLibro" method="post">
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -42,12 +42,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var libro in (List<LibroPorAutorModel>)ViewData["LibrosPorAutor"])
+                            @foreach (var verlibro in (List<LibroPorAutorModel>)ViewData["LibrosPorAutor"])
                             {
                                 <tr>
-                                    <td>@libro.NombreLibro</td>
+                                    <td>@verlibro.NombreLibro</td>
                                     <td>
-                                        <button type="submit" class="btn btn-primary" name="nombreLibro" value="">Seleccionar</button>
+                                        <button type="submit" class="btn btn-primary" name="nombreLibro" value="@verlibro.NombreLibro">Seleccionar</button>
                                     </td>
                                 </tr>
                             }
