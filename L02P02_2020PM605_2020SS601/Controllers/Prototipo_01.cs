@@ -21,19 +21,18 @@ namespace L02P02_2020PM605_2020SS601.Controllers
 
         public IActionResult Index()
         {
-            var listaNombresAutores = (from libro in _libreriaDbContext.libros
-                join autor in _libreriaDbContext.autores on libro.id_autor equals autor.id
-                select new
-                {
-                    nombreAutor = autor.autor
-                }
-            );
+            var listaNombresAutores = (from autor in _libreriaDbContext.autores
+                                       select new
+                                       {
+                                           nombreAutor = autor.autor
+                                       }).Distinct();
 
             ViewData["listaNombresAutores"] = listaNombresAutores.ToList();
 
             return View();
         }
 
-        
+
+
     }
 }
